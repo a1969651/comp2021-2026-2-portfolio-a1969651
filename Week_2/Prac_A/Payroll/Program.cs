@@ -10,11 +10,25 @@ public class Program
             Console.WriteLine("Enter hours worked: ");
             double hours = double.Parse(Console.ReadLine());
 
+            if (hours < 0) {
+                throw new ArgumentException("Hours must be positive.");
+            }
+
             Console.WriteLine("Enter rate: ");
             decimal rate = decimal.Parse(Console.ReadLine());
 
+            if (rate < 0)
+            {
+                throw new ArgumentException("Rate must be positive.");
+            }
+
             Console.WriteLine("Enter tax rate: ");
             decimal taxRate = decimal.Parse(Console.ReadLine());
+
+            if (taxRate < 0 || taxRate > 1)
+            {
+                throw new ArgumentException("Tax rate must be between 0 and 1.");
+            }
 
             Payroll employee = new Payroll(hours, rate, taxRate);
 
