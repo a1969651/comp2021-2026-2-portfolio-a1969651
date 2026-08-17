@@ -28,33 +28,43 @@ public class Program
                 decimal withamount = decimal.Parse(Console.ReadLine());
                 account.Withdraw(withamount);
                 Console.WriteLine($"You just withdrew {withamount} with a fee of {account.transactionFee}. New Balance is {account.Balance}");
+
+                Console.WriteLine("");
+
+                Console.WriteLine("Displaying Account Information");
+                account.DisplayAccountInfo();
             } else if (accType == 2)
             {
                 SavingsAccount account = new SavingsAccount();
 
-            Console.WriteLine("Enter Owner: ");
-            string owner = Console.ReadLine();
+                Console.WriteLine("Enter Owner: ");
+                string owner = Console.ReadLine();
 
-            Console.WriteLine("Enter deposit amount: ");
-            decimal amount = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Enter deposit amount: ");
+                decimal amount = decimal.Parse(Console.ReadLine());
 
-            account.Owner = owner;
-            account.Deposit(amount);
-            Console.WriteLine($"New Balance is {account.Balance}");
+                account.Owner = owner;
+                account.Deposit(amount);
+                Console.WriteLine($"New Balance is {account.Balance}");
 
-            Console.WriteLine("Enter Withdraw amount: ");
-            decimal withamount = decimal.Parse(Console.ReadLine());
-            account.Withdraw(withamount);
-            Console.WriteLine($"You just withdrew {withamount}. New Balance is {account.Balance}");
+                Console.WriteLine("Enter Withdraw amount: ");
+                decimal withamount = decimal.Parse(Console.ReadLine());
+                account.Withdraw(withamount);
+                Console.WriteLine($"You just withdrew {withamount}. New Balance is {account.Balance}");
 
-            Console.WriteLine("Enter interest rate: ");               
-            decimal interestRate = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Enter interest rate: ");               
+                decimal interestRate = decimal.Parse(Console.ReadLine());
 
-            account.interestRate = interestRate;
+                account.interestRate = interestRate;
 
-            Console.WriteLine($"Before Interest {account.Balance}");
-            account.ApplyInterest();
-            Console.WriteLine($"After Interest {account.Balance}");
+                Console.WriteLine($"Before Interest {account.Balance}");
+                account.ApplyInterest();
+                Console.WriteLine($"After Interest {account.Balance}");
+                
+                Console.WriteLine("");
+
+                Console.WriteLine("Displaying Account Information");
+                account.DisplayAccountInfo();
             }
         }
         catch (ArgumentException ex)

@@ -29,6 +29,13 @@ public class BankAccount
             throw new ArgumentException("Insufficient funds");
         }
     }
+
+    public virtual void DisplayAccountInfo()
+    {
+        Console.WriteLine($"Account Owner: {Owner}");
+        Console.WriteLine($"Account Balance: {Balance}");
+    }
+
 }
 
 public class SavingsAccount : BankAccount 
@@ -37,6 +44,14 @@ public class SavingsAccount : BankAccount
 
     public void ApplyInterest(){
         Balance = Balance + (Balance * interestRate);
+    }
+
+    public override void DisplayAccountInfo()
+    {
+        Console.WriteLine($"Account Type: Savings Account");
+        Console.WriteLine($"Account Owner: {Owner}");
+        Console.WriteLine($"Account Balance: {Balance}");
+        Console.WriteLine($"Interest Rate: {interestRate}");
     }
 }
 
@@ -54,5 +69,13 @@ public class CheckingAccount : BankAccount
         {
             throw new ArgumentException("Insufficient funds");
         }
+    }
+
+    public override void DisplayAccountInfo()
+    {
+        Console.WriteLine($"Account Type: Checkings Account");
+        Console.WriteLine($"Account Owner: {Owner}");
+        Console.WriteLine($"Account Balance: {Balance}");
+        Console.WriteLine($"Withdraw Fee: {transactionFee}");
     }
 }
