@@ -50,8 +50,7 @@ public class BankAccountTests
 
         account.Deposit(100m);
 
-        Assert.Throws<ArgumentException>(() =>
-            account.Withdraw(150m)
+        Assert.Throws<ArgumentException>(() => account.Withdraw(150m)
         );
     }
 
@@ -88,5 +87,28 @@ public class BankAccountTests
 
         Assert.Throws<ArgumentException>(() => account.Withdraw(16m)
         );
+    }
+
+    [Fact]
+    public void get_Owner()
+    {
+        CheckingAccount account = new CheckingAccount();
+
+        account.Owner = "Nic";
+
+        Assert.Equal("Nic", account.Owner);
+    }
+
+    [Fact]
+    public void DisplayAccountInfo()
+    {
+        CheckingAccount account = new CheckingAccount();
+
+        account.Owner = "Nic";
+        account.Balance = 100m;
+
+        Assert.Equal("Nic", account.Owner);
+        Assert.Equal(100m, account.Balance);
+        Assert.Equal(5, account.transactionFee);
     }
 }
